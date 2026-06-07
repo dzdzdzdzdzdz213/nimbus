@@ -1,3 +1,5 @@
+﻿#$OutputEncoding = [System.Text.UTF8Encoding]::new()
+[Console]::OutputEncoding = [System.Text.UTF8Encoding]::new()
 # nimbus - System Weather Engine
 # Maps live system metrics onto a living weather visualization.
 # Your machine has its own climate. Watch it change.
