@@ -1,27 +1,4 @@
-﻿#$OutputEncoding = [System.Text.UTF8Encoding]::new()
-[Console]::OutputEncoding = [System.Text.UTF8Encoding]::new()
-# nimbus - System Weather Engine
-# Maps live system metrics onto a living weather visualization.
-# Your machine has its own climate. Watch it change.
-
-$ESC = "$([char]27)"
-$RESET = "${ESC}[0m"
-$CLS = "${ESC}[2J${ESC}[H"
-$HIDE = "${ESC}[?25l"
-$SHOW = "${ESC}[?25h"
-
-$weatherTypes = @{
-    Clear      = @{icon='☀'; temp='Warm';   wind='Calm';     color=@(255,220,80)}
-    PartlyCloudy = @{icon='⛅'; temp='Mild';  wind='Light';   color=@(200,200,180)}
-    Overcast   = @{icon='☁';  temp='Cool';   wind='Moderate'; color=@(150,150,160)}
-    Fog        = @{icon='🌫'; temp='Chill';  wind='Still';   color=@(160,160,170)}
-    Rain       = @{icon='🌧'; temp='Cold';   wind='Gusty';    color=@(80,130,200)}
-    Storm      = @{icon='⛈'; temp='Volatile'; wind='High';    color=@(180,80,80)}
-    Heatwave   = @{icon='🔥'; temp='Hot';    wind='Dry';      color=@(255,100,50)}
-    Aurora     = @{icon='🌌'; temp='Ethereal'; wind='Cosmic'; color=@(100,200,255)}
-}
-
-function Get-FG($r, $g, $b) { "${ESC}[38;2;$r;$g;${b}m" }
+﻿function Get-FG($r, $g, $b) { "${ESC}[38;2;$r;$g;${b}m" }
 
 function Get-SystemClimate {
     $cpu = (Get-CimInstance Win32_Processor).LoadPercentage
